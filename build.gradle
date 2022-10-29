@@ -1,5 +1,9 @@
 buildscript {
     apply from: 'config.gradle'
+
+    dependencies {
+        classpath rootProject.classpath.hilt
+    }
 }
 plugins {
     id 'com.android.application' version '7.2.0' apply false

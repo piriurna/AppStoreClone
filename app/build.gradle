@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -20,6 +22,18 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"http://ws2.aptoide.com/api/6/\"")
+            buildConfigField("Long", "READ_TIMEOUT", "15L")
+            buildConfigField("Long", "CONNECT_TIMEOUT", "15L")
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"http://ws2.aptoide.com/api/6/\"")
+            buildConfigField("Long", "READ_TIMEOUT", "15L")
+            buildConfigField("Long", "CONNECT_TIMEOUT", "15L")
         }
     }
     compileOptions {
@@ -47,4 +61,12 @@ dependencies {
     api rootProject.libraries.coverterGson
     api rootProject.libraries.okHttp
     api rootProject.libraries.loggingInterceptor
+
+    implementation rootProject.libraries.hiltAndroid
+    kapt rootProject.libraries.hiltAndroidCompiler
+
+    implementation rootProject.libraries.hiltLifecycleViewmodel
+    implementation rootProject.libraries.hiltNavigationCompose
+
+    implementation rootProject.libraries.dagger
 }
