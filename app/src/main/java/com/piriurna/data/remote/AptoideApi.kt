@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface AptoideApi {
 
     @GET("bulkRequest/api_list/listApps")
-    suspend fun getAppList() : List<AppListDto>
+    suspend fun getAppList() : AppListDto
 }

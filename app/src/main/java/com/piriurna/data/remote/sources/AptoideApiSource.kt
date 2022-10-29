@@ -7,7 +7,7 @@ class AptoideApiSource constructor(
     private val aptoideApi: AptoideApi
 ) {
 
-    suspend fun getAppList() : List<AppListDto> {
+    suspend fun getAppList() : AppListDto {
         return aptoideApi.getAppList()
     }
 
