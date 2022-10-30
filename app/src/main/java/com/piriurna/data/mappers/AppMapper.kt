@@ -21,7 +21,7 @@ fun AppDto.toApp() : App {
         graphic = this.graphic,
         icon = this.icon,
         modified = this.modified,
-        rating = this.rating,
+        rating = if(this.rating == null ||this.rating == 0.0) "---" else this.rating.toString(),
         size = this.size,
         storeId = this.storeId,
         storeName = this.storeName,

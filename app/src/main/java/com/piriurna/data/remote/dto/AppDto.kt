@@ -5,41 +5,41 @@ import com.google.gson.annotations.SerializedName
 
 data class AppDto(
     @SerializedName("added")
-    val added: String,
+    val added: String?,
     @SerializedName("apk_tags")
-    val apkTags: List<String>,
+    val apkTags: List<String?>?,
     @SerializedName("downloads")
-    val downloads: Int,
+    val downloads: Int?,
     @SerializedName("graphic")
-    val graphic: String,
+    val graphic: String?,
     @SerializedName("icon")
-    val icon: String,
+    val icon: String?,
     @SerializedName("id")
     val id: Int,
     @SerializedName("md5sum")
-    val md5sum: String,
+    val md5sum: String?,
     @SerializedName("modified")
-    val modified: String,
+    val modified: String?,
     @SerializedName("name")
     val name: String,
     @SerializedName("package")
-    val packageX: String,
+    val packageX: String?,
     @SerializedName("pdownloads")
-    val pdownloads: Int,
+    val pdownloads: Int?,
     @SerializedName("rating")
-    val rating: Double,
+    val rating: Double?,
     @SerializedName("size")
-    val size: Int,
+    val size: Int?,
     @SerializedName("store_id")
-    val storeId: Int,
+    val storeId: Int?,
     @SerializedName("store_name")
-    val storeName: String,
+    val storeName: String?,
     @SerializedName("updated")
-    val updated: String,
+    val updated: String?,
     @SerializedName("uptype")
-    val uptype: String,
+    val uptype: String?,
     @SerializedName("vercode")
-    val vercode: Int,
+    val vercode: Int?,
     @SerializedName("vername")
-    val vername: String
+    val vername: String?
 )
