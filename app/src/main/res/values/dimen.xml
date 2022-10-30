@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_extra_large">32dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="base_margin">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_extra_small">4dp</dimen>
+    <dimen name="highlight_image_width">368.64dp</dimen>
+    <dimen name="highlight_image_height">180dp</dimen>
+    <dimen name="supporting_icon_width">16dp</dimen>
+    <dimen name="supporting_icon_height">16dp</dimen>
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="base_elevation">16dp</dimen>
+    <dimen name="app_card_image_width">120dp</dimen>
+    <dimen name="app_card_image_height">120dp</dimen>
+</resources>

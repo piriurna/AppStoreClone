@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/base_elevation"
+    app:cardCornerRadius="@dimen/card_radius">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_app_image"
+            android:layout_width="@dimen/highlight_image_width"
+            android:layout_height="@dimen/highlight_image_height"
+            android:contentDescription="@string/app_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- Bottom Text Area with Gradient -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="bottom"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txt_app_name"
+                style="@style/TextAppearance.Material3.ActionBar.Subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/rating_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="App name two lines " />
+
+            <LinearLayout
+                android:id="@+id/rating_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/img_rating_star_icon"
+                    android:layout_width="@dimen/supporting_icon_width"
+                    android:layout_height="@dimen/supporting_icon_height"
+                    android:contentDescription="@string/rating_icon"
+                    android:src="@drawable/ic_star_rating"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/txt_rating"
+                    style="@style/TextAppearance.Material3.ActionBar.Subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:textColor="@color/white"
+                    tools:text="5.0" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

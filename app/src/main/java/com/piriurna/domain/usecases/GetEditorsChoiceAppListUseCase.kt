@@ -6,7 +6,7 @@ import com.piriurna.domain.repositories.AptoideRepository
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
-class GetAppListUseCase @Inject constructor(
+class GetEditorsChoiceAppListUseCase @Inject constructor(
     private val aptoideRepository: AptoideRepository
 ){
 
@@ -16,7 +16,8 @@ class GetAppListUseCase @Inject constructor(
         return Observable.create{
 
             appList.data?.let { list ->
-                it.onNext(Resource.Success(list))
+                val editorsChoiceList = list.filter { it.rating?.toDoubleOrNull() != null && !it.graphic.isNullOrEmpty() }
+                it.onNext(Resource.Success(editorsChoiceList))
             }?: run {
                 it.onError(Throwable("No Apps Found"))
             }
