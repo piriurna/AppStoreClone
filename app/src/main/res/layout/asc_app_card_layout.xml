@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    android:elevation="16dp"
-    app:cardCornerRadius="16dp">
+    android:elevation="@dimen/base_elevation"
+    app:cardCornerRadius="@dimen/card_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:padding="8dp"
+        android:padding="@dimen/margin_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/img_app_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/app_card_image_width"
+            android:layout_height="@dimen/app_card_image_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -26,9 +25,10 @@
         <TextView
             android:id="@+id/txt_app_name"
             android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
             android:ellipsize="end"
+            android:minLines="2"
             android:maxLines="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:id="@+id/rating_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/margin_small"
             android:orientation="horizontal"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +48,8 @@
 
             <ImageView
                 android:id="@+id/img_rating_star_icon"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="@dimen/supporting_icon_width"
+                android:layout_height="@dimen/supporting_icon_height"
                 android:src="@drawable/ic_star_rating"
                 android:contentDescription="@string/rating_icon" />
 
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/margin_small"
                 android:textColor="@color/black"
                 tools:text="5.0" />
         </LinearLayout>

@@ -6,19 +6,24 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.piriurna.domain.Resource
 import com.piriurna.domain.models.App
-import com.piriurna.domain.usecases.GetAppListUseCase
+import com.piriurna.domain.usecases.GetEditorsChoiceAppListUseCase
+import com.piriurna.domain.usecases.GetLocalTopAppsListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val getAppListUseCase: GetAppListUseCase
+    private val getLocalTopAppsListUseCase: GetLocalTopAppsListUseCase,
+    private val getEditorsChoiceAppListUseCase: GetEditorsChoiceAppListUseCase
 ): ViewModel() {
 
 
-    private val _appList = MutableLiveData<List<App>>()
-    val appList : LiveData<List<App>> = _appList
+    private val _localTopAppsList = MutableLiveData<List<App>>()
+    val localTopAppsList : LiveData<List<App>> = _localTopAppsList
+
+    private val _editorChoiceAppsList = MutableLiveData<List<App>>()
+    val editorChoiceAppsList : LiveData<List<App>> = _editorChoiceAppsList
 
     private val _loading = MutableLiveData<Boolean>()
     val loading : LiveData<Boolean> = _loading
@@ -30,10 +35,24 @@ class MainViewModel @Inject constructor(
     fun getAppList() {
         _loading.postValue(true)
         viewModelScope.launch {
-            getAppListUseCase().subscribe { result ->
-                when(result) {
+            getLocalTopAppsListUseCase().subscribe { result ->
+                when (result) {
                     is Resource.Success -> {
-                        _appList.postValue(result.data!!)
+                        _localTopAppsList.postValue(result.data!!)
+                        _loading.postValue(false)
+                    }
+
+                    is Resource.Error -> {
+                        _error.postValue(result.message!!)
+                        _loading.postValue(false)
+                    }
+                }
+            }
+
+            getEditorsChoiceAppListUseCase().subscribe { result ->
+                when (result) {
+                    is Resource.Success -> {
+                        _editorChoiceAppsList.postValue(result.data!!)
                         _loading.postValue(false)
                     }
 
