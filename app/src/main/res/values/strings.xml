@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AppStoreClone</string>
+    <string name="rating_icon">Rating Icon</string>
+    <string name="app_image">App image</string>
 </resources>
