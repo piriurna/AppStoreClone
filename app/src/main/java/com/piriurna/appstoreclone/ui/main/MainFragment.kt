@@ -8,9 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.piriurna.appstoreclone.R
 import com.piriurna.appstoreclone.databinding.FragmentMainBinding
 import com.piriurna.appstoreclone.ui.main.adapters.EditorsChoiceAdapter
 import com.piriurna.appstoreclone.ui.main.adapters.LocalTopAppsAdapter
+import com.piriurna.common.extensions.getDimensionInDp
 import com.piriurna.common.helpers.HorizontalMarginItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -52,7 +54,7 @@ class MainFragment : Fragment() {
 
         binding.editorsChoice.addItemDecoration(HorizontalMarginItemDecoration(16))
 
-        binding.localTopApps.addItemDecoration(HorizontalMarginItemDecoration(16))
+        binding.localTopApps.addItemDecoration(HorizontalMarginItemDecoration(resources.getDimensionInDp(R.dimen.base_margin)))
 
         subscribeObservers()
     }
@@ -61,8 +63,8 @@ class MainFragment : Fragment() {
     private fun subscribeObservers() {
         viewModel.getAppList()
 
-        viewModel.loading.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(requireContext(), "Loading $it", Toast.LENGTH_SHORT)
+        viewModel.loading.observe(viewLifecycleOwner, Observer { loading ->
+            binding.loading.root.visibility = if(loading) View.VISIBLE else View.GONE
         })
 
         viewModel.localTopAppsList.observe(viewLifecycleOwner, Observer {
@@ -72,6 +74,5 @@ class MainFragment : Fragment() {
         viewModel.editorChoiceAppsList.observe(viewLifecycleOwner, Observer {
             editorsChoiceAdapter.items = it
         })
-
     }
 }

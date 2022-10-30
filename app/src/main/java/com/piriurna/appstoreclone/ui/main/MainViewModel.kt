@@ -39,7 +39,9 @@ class MainViewModel @Inject constructor(
                 when (result) {
                     is Resource.Success -> {
                         _localTopAppsList.postValue(result.data!!)
-                        _loading.postValue(false)
+                        if(!_editorChoiceAppsList.value.isNullOrEmpty()){
+                            _loading.postValue(false)
+                        }
                     }
 
                     is Resource.Error -> {
@@ -53,7 +55,9 @@ class MainViewModel @Inject constructor(
                 when (result) {
                     is Resource.Success -> {
                         _editorChoiceAppsList.postValue(result.data!!)
-                        _loading.postValue(false)
+                        if(!_localTopAppsList.value.isNullOrEmpty()){
+                            _loading.postValue(false)
+                        }
                     }
 
                     is Resource.Error -> {

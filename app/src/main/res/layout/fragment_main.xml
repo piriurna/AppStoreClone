@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:background="@color/background_color">
 
     <include
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         layout="@layout/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -15,10 +17,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment"
+        android:layout_height="0dp"
         android:paddingTop="@dimen/margin_small"
-        android:paddingBottom="@dimen/margin_small">
+        android:paddingBottom="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:context=".ui.main.MainFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/editors_choice_title_container"
@@ -56,15 +60,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/base_margin"
+            android:clipToPadding="false"
             android:orientation="horizontal"
             android:paddingStart="@dimen/base_margin"
             android:paddingEnd="@dimen/base_margin"
-            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editors_choice_title_container"
             tools:itemCount="2"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/asc_app_highlight_card_layout" />
 
 
@@ -72,10 +76,10 @@
             android:id="@+id/local_top_apps_title_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/base_margin"
-            android:paddingEnd="@dimen/base_margin"
             android:layout_marginTop="@dimen/margin_extra_large"
             android:orientation="horizontal"
+            android:paddingStart="@dimen/base_margin"
+            android:paddingEnd="@dimen/base_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editors_choice">
 
@@ -104,18 +108,24 @@
             android:id="@+id/local_top_apps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/base_margin"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
             android:paddingStart="@dimen/base_margin"
             android:paddingEnd="@dimen/base_margin"
-            android:clipToPadding="false"
-            android:layout_marginTop="@dimen/base_margin"
-            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/local_top_apps_title_container"
             tools:itemCount="10"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/asc_app_card_layout" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
