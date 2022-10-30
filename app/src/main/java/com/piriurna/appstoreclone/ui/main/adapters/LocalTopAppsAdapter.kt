@@ -5,13 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.piriurna.appstoreclone.R
 import com.piriurna.domain.models.App
 
-class LocalTopAppsAdapter(private val items : List<App>) : RecyclerView.Adapter<LocalTopAppsAdapter.ViewHolder>() {
+class LocalTopAppsAdapter(items : List<App>) : RecyclerView.Adapter<LocalTopAppsAdapter.ViewHolder>() {
+
+    var items : List<App> = items
+        set(newItems) {
+            field = newItems
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
