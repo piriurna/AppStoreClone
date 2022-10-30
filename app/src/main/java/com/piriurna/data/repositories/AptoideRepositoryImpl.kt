@@ -1,6 +1,8 @@
 package com.piriurna.data.repositories
 
+import com.piriurna.data.mappers.toApiNetworkError
 import com.piriurna.data.mappers.toApp
+import com.piriurna.data.remote.ASCException
 import com.piriurna.data.remote.sources.AptoideApiSource
 import com.piriurna.domain.ApiNetworkResponse
 import com.piriurna.domain.models.App
@@ -11,6 +13,12 @@ class AptoideRepositoryImpl(
 ) : AptoideRepository {
 
     override suspend fun getAppList(): ApiNetworkResponse<List<App>> {
-        return ApiNetworkResponse(aptoideApiSource.getAppList().toApp())
+        return try {
+            ApiNetworkResponse(aptoideApiSource.getAppList().toApp())
+        } catch (e : ASCException) {
+            ApiNetworkResponse(
+                error = e.toApiNetworkError()
+            )
+        }
     }
 }

@@ -30,3 +30,4 @@ fun AppDto.toApp() : App {
         versionName = this.vername
     )
 }
+

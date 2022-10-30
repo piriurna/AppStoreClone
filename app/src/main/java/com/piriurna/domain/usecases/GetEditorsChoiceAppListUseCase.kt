@@ -19,8 +19,13 @@ class GetEditorsChoiceAppListUseCase @Inject constructor(
                 val editorsChoiceList = list.filter { it.rating?.toDoubleOrNull() != null && !it.graphic.isNullOrEmpty() }
                 it.onNext(Resource.Success(editorsChoiceList))
             }?: run {
-                it.onError(Throwable("No Apps Found"))
+                it.onNext(Resource.Error(appList.error.message?:NO_APPS_FOUND))
             }
         }
+    }
+
+
+    companion object {
+        const val NO_APPS_FOUND = "No Apps Found"
     }
 }

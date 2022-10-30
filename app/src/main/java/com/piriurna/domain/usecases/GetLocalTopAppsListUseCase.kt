@@ -1,5 +1,6 @@
 package com.piriurna.domain.usecases
 
+import com.piriurna.domain.ApiNetworkResponse
 import com.piriurna.domain.Resource
 import com.piriurna.domain.models.App
 import com.piriurna.domain.repositories.AptoideRepository
@@ -11,7 +12,7 @@ class GetLocalTopAppsListUseCase @Inject constructor(
 ){
 
     suspend operator fun invoke() : Observable<Resource<List<App>>>{
-        val appList =  aptoideRepository.getAppList()
+        val appList = aptoideRepository.getAppList()
 
         return Observable.create{
 
@@ -19,8 +20,12 @@ class GetLocalTopAppsListUseCase @Inject constructor(
                 val localTopApps = list.filter { it.rating?.toDoubleOrNull() == null || it.graphic.isNullOrEmpty() }
                 it.onNext(Resource.Success(localTopApps))
             }?: run {
-                it.onError(Throwable("No Apps Found"))
+                it.onNext(Resource.Error(appList.error.message?:NO_APPS_FOUND))
             }
         }
+    }
+
+    companion object {
+        const val NO_APPS_FOUND = "No Apps Found"
     }
 }
