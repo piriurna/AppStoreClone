@@ -1,4 +1,5 @@
 
+
 # App Store Clone
 ## The Brief
 
@@ -19,6 +20,8 @@ This is an app store clone that fetches apps from an api and displays it.
 - RXJava
 - Material Design
 - XML Layouts
+- Dark Mode Support
+- Navigation Component
 ```
 
 ### Architecture Chosing:
@@ -29,6 +32,6 @@ I chose the MVVM architecture due to it's ease of reading, implementation and co
 
 
 
-Image #1            | Image #2
-:-------------------------:|:----------------------------:
-<img src="images/app_store_clone_1.png">    | <img src="images/app_store_clone_2.png">
+Image #1 | Image #2 | Image #3
+:-------------------------:|:----------------------------:|:------------------------:
+<img src="images/app_store_clone_1.png">    | <img src="images/app_store_clone_2.png"> |<img src="images/app_store_clone_3.png">
