@@ -8,6 +8,7 @@
     app:cardCornerRadius="@dimen/card_radius">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
         android:padding="@dimen/margin_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -59,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:layout_marginStart="@dimen/margin_small"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnSecondary"
                 tools:text="5.0" />
         </LinearLayout>
 

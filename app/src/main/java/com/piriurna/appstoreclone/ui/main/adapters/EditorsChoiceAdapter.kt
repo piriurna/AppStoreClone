@@ -10,7 +10,7 @@ import coil.load
 import com.piriurna.appstoreclone.R
 import com.piriurna.domain.models.App
 
-class EditorsChoiceAdapter(items : List<App>) : RecyclerView.Adapter<EditorsChoiceAdapter.ViewHolder>() {
+class EditorsChoiceAdapter(items : List<App> = emptyList(), private val onItemClickListener: AppClickListener) : RecyclerView.Adapter<EditorsChoiceAdapter.ViewHolder>() {
 
     var items : List<App> = items
         set(newItems) {
@@ -30,6 +30,9 @@ class EditorsChoiceAdapter(items : List<App>) : RecyclerView.Adapter<EditorsChoi
             viewHolder.appName.text = name
             viewHolder.appRating.text = rating.toString()
             viewHolder.appImage.load(this.graphic)
+            viewHolder.root.setOnClickListener {
+                onItemClickListener.onAppClicked(items[position])
+            }
         }
     }
 
@@ -37,6 +40,8 @@ class EditorsChoiceAdapter(items : List<App>) : RecyclerView.Adapter<EditorsChoi
     override fun getItemCount() = items.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val root : View
+
         val appName: TextView
 
         val appRating : TextView
@@ -50,6 +55,8 @@ class EditorsChoiceAdapter(items : List<App>) : RecyclerView.Adapter<EditorsChoi
             appRating = view.findViewById(R.id.txt_rating)
 
             appImage = view.findViewById(R.id.img_app_image)
+
+            root = view.findViewById(R.id.root)
         }
     }
 }

@@ -9,13 +9,13 @@ data class AppDto(
     @SerializedName("apk_tags")
     val apkTags: List<String?>?,
     @SerializedName("downloads")
-    val downloads: Int?,
+    val downloads: Long?,
     @SerializedName("graphic")
     val graphic: String?,
     @SerializedName("icon")
     val icon: String?,
     @SerializedName("id")
-    val id: Int,
+    val id: Long,
     @SerializedName("md5sum")
     val md5sum: String?,
     @SerializedName("modified")
@@ -25,13 +25,13 @@ data class AppDto(
     @SerializedName("package")
     val packageX: String?,
     @SerializedName("pdownloads")
-    val pdownloads: Int?,
+    val pdownloads: Long?,
     @SerializedName("rating")
     val rating: Double?,
     @SerializedName("size")
-    val size: Int?,
+    val size: Long?,
     @SerializedName("store_id")
-    val storeId: Int?,
+    val storeId: Long?,
     @SerializedName("store_name")
     val storeName: String?,
     @SerializedName("updated")
@@ -39,7 +39,7 @@ data class AppDto(
     @SerializedName("uptype")
     val uptype: String?,
     @SerializedName("vercode")
-    val vercode: Int?,
+    val vercode: Long?,
     @SerializedName("vername")
     val vername: String?
 )

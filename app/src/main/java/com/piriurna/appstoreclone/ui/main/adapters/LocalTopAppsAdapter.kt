@@ -10,7 +10,7 @@ import coil.load
 import com.piriurna.appstoreclone.R
 import com.piriurna.domain.models.App
 
-class LocalTopAppsAdapter(items : List<App>) : RecyclerView.Adapter<LocalTopAppsAdapter.ViewHolder>() {
+class LocalTopAppsAdapter(items : List<App> = emptyList()) : RecyclerView.Adapter<LocalTopAppsAdapter.ViewHolder>() {
 
     var items : List<App> = items
         set(newItems) {

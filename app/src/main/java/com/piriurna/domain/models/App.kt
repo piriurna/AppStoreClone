@@ -1,22 +1,20 @@
 package com.piriurna.domain.models
 
-import com.google.gson.annotations.SerializedName
-
 data class App(
-    val id: Int,
+    val id: Long,
     val name: String,
     val added: String?,
     val apkTags: List<String?>?,
-    val downloads: Int?,
+    val downloads: Long?,
     val graphic: String?,
     val icon: String?,
     val modified: String?,
     val rating: String?,
-    val size: Int?,
-    val storeId: Int?,
+    val size: Long?,
+    val storeId: Long?,
     val storeName: String?,
     val updated: String?,
-    val versionCode: Int?,
+    val versionCode: Long?,
     val versionName: String?
 ){
 

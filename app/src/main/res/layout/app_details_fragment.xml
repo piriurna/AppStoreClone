@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.AppStoreClone.Fragment"
+    android:padding="@dimen/base_margin">
+
+    <ImageView
+        android:id="@+id/img_app_image"
+        android:layout_width="@dimen/highlight_image_width"
+        android:layout_height="@dimen/highlight_image_height"
+        android:layout_marginTop="@dimen/margin_large"
+        android:contentDescription="@string/app_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/txt_app_name"
+        style="@style/Theme.AppStoreClone.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/base_margin"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_app_image"
+        tools:text="App Name here with almost two lines" />
+
+
+    <TextView
+        android:id="@+id/txt_app_rating"
+        style="@style/Theme.AppStoreClone.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/base_margin"
+        app:drawableStartCompat="@drawable/ic_star_rating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_app_name"
+        tools:text="5.0" />
+
+    <TextView
+        android:id="@+id/txt_app_tags"
+        style="@style/Theme.AppStoreClone.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/base_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_app_rating"
+        tools:text="Tags: Game, App, Fix"/>
+
+    <TextView
+        android:id="@+id/txt_app_downloads"
+        style="@style/Theme.AppStoreClone.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/base_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_app_tags"
+        tools:text="Downloads: 23242"/>
+
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
