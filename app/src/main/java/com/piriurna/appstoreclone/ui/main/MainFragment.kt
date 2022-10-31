@@ -33,7 +33,7 @@ class MainFragment @Inject constructor(): Fragment(), AppClickListener {
     }
 
     private val localTopAppsAdapter : LocalTopAppsAdapter by lazy {
-        LocalTopAppsAdapter()
+        LocalTopAppsAdapter(onItemClickListener = this)
     }
 
     override fun onCreateView(
