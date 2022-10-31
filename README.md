@@ -29,6 +29,6 @@ I chose the MVVM architecture due to it's ease of reading, implementation and co
 
 
 
-Image #1            |
+Image #1            | Image #2
 :-------------------------:|:----------------------------:|:----------------------------:
-<img src="images/app_store_clone_1.png">    | 
+<img src="images/app_store_clone_1.jpg">    | <img src="images/app_store_clone_2.jpg">
